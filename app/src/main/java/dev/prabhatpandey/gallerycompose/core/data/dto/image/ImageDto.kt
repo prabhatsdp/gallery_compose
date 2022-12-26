@@ -16,7 +16,7 @@ data class ImageDto(
     @SerializedName("current_user_collections")
     val currentUserCollections: List<Any>,
     @SerializedName("description")
-    val description: Any,
+    val description: Any?,
     @SerializedName("height")
     val height: Int,
     @SerializedName("id")
@@ -48,7 +48,8 @@ data class ImageDto(
             id = id,
             likes = likes,
             thumbUrl = urls.thumb,
-            fullUrl = urls.full
+            fullUrl = urls.full,
+            description = description?.toString() ?: "No Description"
         )
     }
 }
